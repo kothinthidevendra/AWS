@@ -8,3 +8,5 @@ Private RouteTable
 NAT Gatway
 VPC Peering
 VPC Transit Gateway
+VPC Flow Logs
+VPC End Point
