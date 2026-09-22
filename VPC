@@ -1,9 +1,11 @@
 VPC
-CIDR
+VPC CIDR
 Public Subnet
+Subnet CIDR
 Public RouteTable
 Internet Gateway
 Private Subnet
+Subnet CIDR
 Private RouteTable
 NAT Gatway
 VPC Peering
