@@ -1,0 +1,10 @@
+VPC
+CIDR
+Public Subnet
+Public RouteTable
+Internet Gateway
+Private Subnet
+Private RouteTable
+NAT Gatway
+VPC Peering
+VPC Transit Gateway
