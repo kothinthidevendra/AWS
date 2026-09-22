@@ -1,13 +1,15 @@
-VPC
-VPC CIDR
-Public Subnet
-Subnet CIDR
-Public RouteTable
-Internet Gateway
-Private Subnet
-Subnet CIDR
-Private RouteTable
-NAT Gatway
+VPC Creation
+=============
+VPC Name: Project_VPC_NV
+VPC CIDR: 10.0.0.0/16
+Public Subnet Name: Project_PubSub_NV_1a
+Subnet CIDR: 10.0.1.0/24
+Internet Gateway: Project_IGW_NV -- Attach to VPC
+Public RouteTable: Project_PubRT_NV - Associate the Public subnet. Add IGW in route tables.
+Private Subnet Name: Project_PriSub_NV_1b
+Subnet CIDR : 10.0.2.0/24
+NAT Gateway: Project_NGW_NV
+Private RouteTable: Project_PriRT_NV - Associate the Private subnet. Add NGW in route tables.
 VPC Peering
 VPC Transit Gateway
 VPC Flow Logs
