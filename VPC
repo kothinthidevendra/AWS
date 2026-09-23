@@ -10,7 +10,21 @@ Private Subnet Name: Project_PriSub_NV_1b
 Subnet CIDR : 10.0.2.0/24
 NAT Gateway: Project_NGW_NV
 Private RouteTable: Project_PriRT_NV - Associate the Private subnet. Add NGW in route tables.
+===========
 VPC Peering
+============
+VPC --> Peering Connection
+Name: VPC Peering from VPC-A to VPC-B
+Select local VPC to peer with: Select VPC-A
+Select another VPC to peer with: Select VPC-B
+
+Accept the VPC peering connection at VPC-B
+
+Update the Route Table of VPC-A with CIDR of VPC-B & Select the Peering connection in Target.
+
+Update the Route Table of VPC-B with CIDR of VPC-A & Select the Peering connection in Target.
+=============
 VPC Transit Gateway
+==============
 VPC Flow Logs
 VPC End Point
