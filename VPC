@@ -24,7 +24,7 @@ CIDR: 10.0.1.0/24
 Internet Gateway: Proj-A-IGW-NV
 Route Table Name: Proj-A-Pub-RT-NA
 Subnet Name: Proj-A-Pri-Sub-NA-1b
-CIDR: 10.0.1.0/24
+CIDR: 10.0.2.0/24
 Route Table Name: Proj-A-Pri-RT-NA
 
 VPC-2
@@ -35,7 +35,7 @@ CIDR: 20.0.1.0/24
 Internet Gateway: Proj-B-IGW-MU
 Route Table Name: Proj-B-Pub-RT-MU
 Subnet Name: Proj-B-Pri-Sub-MU-1b
-CIDR: 20.0.1.0/24
+CIDR: 20.0.2.0/24
 Route Table Name: Proj-B-Pri-RT-MU
 
 VPC --> Peering Connection
