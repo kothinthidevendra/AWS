@@ -52,8 +52,85 @@ Update the Route Table of VPC-B with CIDR of VPC-A(10.0.0.0/16) & Select the Pee
 
 Now the resource can communicate privately.
 
-=============
+====================================================================================================================================================================
 VPC Transit Gateway
+====================================================================================================================================================================
+VPC Transit Gateway: A transit gateway (TGW) is a network transit hub that interconnects attachments (VPCs and VPNs) within the same AWS account or across AWS accounts.
+
+VPC-1: VPC-A hosted in Virginia region
+VPC-2: VPC-B hosted in Mumbai region
+VPC-3: VPC-C hosted in Mumbai region
+
+VPC-3
+VPC Name: Proj-C-VPC-MU
+CIDR: 30.0.0.0/16
+Subnet Name: Proj-C-Pub-Sub-MU-1a
+CIDR: 30.0.1.0/24
+Internet Gateway: Proj-C-IGW-MU
+Route Table Name: Proj-C-Pub-RT-MU
+Subnet Name: Proj-C-Pri-Sub-MU-1b
+CIDR: 30.0.1.0/24
+Route Table Name: Proj-C-Pri-RT-MU
+
+N.Virginia --> VPC --> Transit gateway
+Name: TG-Proj-A-NV
+
+VPC --> Transit gateway attachments 
+Name: TGA-Proj-A
+Transit gateway ID: Select the ID which we created above step.
+Attachment type: VPC
+VPC ID: Select the VPC-Proj-A ID & associated subnets.
+
+VPC --> Proj-A Route Table
+Update the Route Table of VPC-A with CIDR(20.0.0.0/16) of VPC-B & Select the Transit Gateway in Target.
+Update the Route Table of VPC-A with CIDR(30.0.0.0/16) of VPC-C & Select the Transit Gateway in Target.
+
+Mumbia --> VPC --> Transit gateway
+Name: TG-Proj-B and Proj-C-MU
+
+VPC --> Transit gateway attachments 
+Name: TGA-Proj-B 
+Transit gateway ID: Select the ID which we created above step.
+Attachment type: VPC
+VPC ID: Select the VPC-Proj-B ID & associated subnets
+
+Name: TGA-Proj-C
+Transit gateway ID: Select the ID which we created above step.
+Attachment type: VPC
+VPC ID: Select the VPC-Proj-C ID & associated subnets
+
+VPC --> Proj-B Route Table
+Update the Route Table of VPC-B with CIDR(10.0.0.0/16) of VPC-A & Select the Transit Gateway in Target.
+Update the Route Table of VPC-B with CIDR(30.0.0.0/16) of VPC-C & Select the Transit Gateway in Target.
+
+VPC --> Proj-C Route Table
+Update the Route Table of VPC-C with CIDR(10.0.0.0/16) of VPC-A & Select the Transit Gateway in Target.
+Update the Route Table of VPC-C with CIDR(20.0.0.0/16) of VPC-B & Select the Transit Gateway in Target.
+
+Below steps are needed only if we need connectivity b/t VPC's which are hosted on different regions.
+
+Mumbai --> VPC --> Transit gateway attachments
+Name: TGA-VPC-Peering-MU-to-NV
+Transit gateway ID: Select the ID which we created above step.
+Attachment type: Peering Connection
+Region: Select N.Virginia
+Transit gateway (accepter): Copy and paste the Transit Gateway ID from N.Virginia.
+
+N.Virginia --> VPC --> Transit gateway attachments
+Accept the peering connection at VPC-A(N.Virginia)
+
+VPC --> Transit gateway route tables
+Select the Route table associated to Transit Gateway
+routes --> create static route
+Update the CIDR of VPC-B(20.0.0.0/16) and select Transit Gateway Peering
+Update the CIDR of VPC-C(30.0.0.0/16) and select Transit Gateway Peering
+
+Mumbai --> VPC --> Transit gateway route tables
+Select the Route table associated to Transit Gateway
+routes --> create static route
+Update the CIDR of VPC-A(10.0.0.0/16) and select Transit Gateway Peering
+======================================================================================================================
+
 ==============
 VPC Flow Logs
 VPC End Point
