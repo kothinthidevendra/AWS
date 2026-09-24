@@ -10,19 +10,48 @@ Private Subnet Name: Project_PriSub_NV_1b
 Subnet CIDR : 10.0.2.0/24
 NAT Gateway: Project_NGW_NV
 Private RouteTable: Project_PriRT_NV - Associate the Private subnet. Add NGW in route tables.
-===========
-VPC Peering
-============
+=============================================================================================================================================
+VPC Peering : A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately.
+=============================================================================================================================================
+VPC-1: VPC-A hosted in Virginia region
+VPC-2: VPC-B hosted in Mumbai region
+
+VPC-1
+VPC Name: Proj-A-VPC-NV
+CIDR: 10.0.0.0/16
+Subnet Name: Proj-A-Pub-Sub-NA-1a
+CIDR: 10.0.1.0/24
+Internet Gateway: Proj-A-IGW-NV
+Route Table Name: Proj-A-Pub-RT-NA
+Subnet Name: Proj-A-Pri-Sub-NA-1b
+CIDR: 10.0.1.0/24
+Route Table Name: Proj-A-Pri-RT-NA
+
+VPC-2
+VPC Name: Proj-B-VPC-MU
+CIDR: 20.0.0.0/16
+Subnet Name: Proj-B-Pub-Sub-MU-1a
+CIDR: 20.0.1.0/24
+Internet Gateway: Proj-B-IGW-MU
+Route Table Name: Proj-B-Pub-RT-MU
+Subnet Name: Proj-B-Pri-Sub-MU-1b
+CIDR: 20.0.1.0/24
+Route Table Name: Proj-B-Pri-RT-MU
+
 VPC --> Peering Connection
+
 Name: VPC Peering from VPC-A to VPC-B
 Select local VPC to peer with: Select VPC-A
-Select another VPC to peer with: Select VPC-B
+Select another VPC to peer with: Select VPC-B & copy the VPC-B ID (for another region)
 
-Accept the VPC peering connection at VPC-B
+Accept the VPC peering connection at VPC-B(Mumbai) Peering connections
 
-Update the Route Table of VPC-A with CIDR of VPC-B & Select the Peering connection in Target.
+Update the Route Table of VPC-A with CIDR(20.0.0.0/16) of VPC-B & Select the Peering connection in Target.
 
-Update the Route Table of VPC-B with CIDR of VPC-A & Select the Peering connection in Target.
+Update the Route Table of VPC-B with CIDR of VPC-A(10.0.0.0/16) & Select the Peering connection in Target.
+
+Now the resource can communicate privately.
+
 =============
 VPC Transit Gateway
 ==============
